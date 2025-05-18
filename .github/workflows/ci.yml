@@ -23,13 +23,11 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-     - name: 🐳 Build and push Docker image
-       uses: docker/build-push-action@v5
-       with:
+      - name: 🐳 Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
           context: ./backend
           file: ./backend/Dockerfile
-
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/fullstack-docker-postgre-app:${{ github.sha }}
-
 
